@@ -1,0 +1,240 @@
+[
+  {
+    "type": "constructor",
+    "payable": false,
+    "inputs": [
+      { "type": "address", "name": "_priceFeedAddress" },
+      { "type": "address", "name": "_vrfCoordinator" },
+      { "type": "address", "name": "_aavePoolAddress" },
+      { "type": "address", "name": "_wethContractAddress" },
+      { "type": "uint64", "name": "_subscriptionId" },
+      { "type": "bytes32", "name": "_keyHash" }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "OnlyCoordinatorCanFulfill",
+    "inputs": [
+      { "type": "address", "name": "have" },
+      { "type": "address", "name": "want" }
+    ]
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "name": "EthReceived",
+    "inputs": [
+      { "type": "uint256", "name": "date", "indexed": false },
+      { "type": "address", "name": "player", "indexed": false },
+      { "type": "uint256", "name": "amount", "indexed": false }
+    ]
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "name": "MoneySentToWinner",
+    "inputs": [
+      { "type": "uint256", "name": "date", "indexed": false },
+      { "type": "address", "name": "player", "indexed": false },
+      { "type": "uint256", "name": "amount", "indexed": false }
+    ]
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "name": "NewPlayer",
+    "inputs": [
+      { "type": "uint256", "name": "date", "indexed": false },
+      { "type": "address", "name": "player", "indexed": false },
+      { "type": "uint256", "name": "amount", "indexed": false },
+      { "type": "uint256", "name": "prizePool", "indexed": false }
+    ]
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "name": "RandomNumberReceived",
+    "inputs": [
+      { "type": "uint256", "name": "date", "indexed": false },
+      { "type": "uint256", "name": "randomNumber", "indexed": false },
+      { "type": "uint256", "name": "recentWinnerIndex", "indexed": false },
+      { "type": "address", "name": "recentWinner", "indexed": false }
+    ]
+  },
+  {
+    "type": "event",
+    "anonymous": false,
+    "name": "RandomRequestSent",
+    "inputs": [
+      { "type": "uint256", "name": "date", "indexed": false },
+      { "type": "uint256", "name": "requestId", "indexed": false }
+    ]
+  },
+  {
+    "type": "function",
+    "name": "checkAaveBalance",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [],
+    "outputs": [{ "type": "uint256" }, { "type": "uint256" }]
+  },
+  {
+    "type": "function",
+    "name": "emrgStopLottery",
+    "constant": false,
+    "payable": false,
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "endLottery",
+    "constant": false,
+    "payable": false,
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "enter",
+    "constant": false,
+    "stateMutability": "payable",
+    "payable": true,
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "entranceFeeUSD",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [],
+    "outputs": [{ "type": "uint256" }]
+  },
+  {
+    "type": "function",
+    "name": "getEntranceFee",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [],
+    "outputs": [{ "type": "uint256" }]
+  },
+  {
+    "type": "function",
+    "name": "getPlayersNumber",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [],
+    "outputs": [{ "type": "uint256" }]
+  },
+  {
+    "type": "function",
+    "name": "lottery_state",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [],
+    "outputs": [{ "type": "uint8" }]
+  },
+  {
+    "type": "function",
+    "name": "owner",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [],
+    "outputs": [{ "type": "address" }]
+  },
+  {
+    "type": "function",
+    "name": "playerDeposit",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [{ "type": "address" }],
+    "outputs": [{ "type": "uint256" }]
+  },
+  {
+    "type": "function",
+    "name": "players",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [{ "type": "uint256" }],
+    "outputs": [{ "type": "address" }]
+  },
+  {
+    "type": "function",
+    "name": "prizePool",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [],
+    "outputs": [{ "type": "uint256" }]
+  },
+  {
+    "type": "function",
+    "name": "randomWords",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [{ "type": "uint256" }],
+    "outputs": [{ "type": "uint256" }]
+  },
+  {
+    "type": "function",
+    "name": "rawFulfillRandomWords",
+    "constant": false,
+    "payable": false,
+    "inputs": [
+      { "type": "uint256", "name": "requestId" },
+      { "type": "uint256[]", "name": "randomWords" }
+    ],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "recentWinner",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [],
+    "outputs": [{ "type": "address" }]
+  },
+  {
+    "type": "function",
+    "name": "startLottery",
+    "constant": false,
+    "payable": false,
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "transferFundsToAdmin",
+    "constant": false,
+    "payable": false,
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "transferFundsToWinner",
+    "constant": false,
+    "payable": false,
+    "inputs": [],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "withdrawAaveFunds",
+    "constant": false,
+    "payable": false,
+    "inputs": [{ "type": "uint256", "name": "amount" }],
+    "outputs": []
+  }
+]
