@@ -28,7 +28,7 @@ export default function Lottery() {
   } = useWeb3Contract({
     abi: abi,
     contractAddress: lotteryAddress,
-    functionName: "enter",
+    functionName: "enterLottery",
     params: {},
     msgValue: entranceFee,
   });
@@ -50,7 +50,7 @@ export default function Lottery() {
   const { runContractFunction: getPrizePool } = useWeb3Contract({
     abi: abi,
     contractAddress: lotteryAddress,
-    functionName: "prizePool",
+    functionName: "getPrizePool",
     params: {},
   });
 
